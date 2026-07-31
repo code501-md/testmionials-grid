@@ -1,0 +1,107 @@
+/*  ### preparing the page ###  */
+
+:root {
+  --purple: hsl(263, 55%, 52%);
+  --dark-gray: hsl(217, 19%, 35%);
+  --dark-black: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-bg: hsl(210, 46%, 95%);
+  --light-text: hsl(0, 0%, 81%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  font-family: "Barlow Semi Condensed", sans-serif;
+  padding: min(5rem, 6%);
+  font-size: max(1.3rem, 8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 2rem;
+}
+
+/* ### Fixing cards ### */
+
+.card {
+  padding: min(2rem, 6%);
+  border-radius: 10px;
+  box-shadow: 0.1px 30px 30px hsl(217, 19%, 35%);
+}
+.card-purple {
+  background: url("assest/images/bg-pattern-quotation.svg");
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-color: var(--purple);
+}
+.card-dark-gray {
+  background-color: hsl(219, 29%, 14%);
+}
+.card-tall,
+.card-short {
+  background: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 7%);
+}
+.card-black {
+  background: hsl(219, 29%, 14%);
+}
+
+.author-info {
+  width: fit-content;
+  margin-bottom: min(1rem, 40px);
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 0.9rem;
+}
+.author-name {
+  color: var(--white);
+}
+img {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid hsl(0, 0%, 81%);
+}
+span {
+  font-size: medium;
+  font-weight: 400;
+  color: var(--light-text);
+}
+/*    ## Responsive  ##      */
+
+@media (min-width: 900px) {
+  .container {
+    max-width: 1110px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "card1 card1 card2 card3"
+      "card4 card5 card5 card3";
+  }
+
+  .card-purple {
+    grid-area: card1;
+  }
+  .card-dark-gray {
+    grid-area: card2;
+  }
+  .card-tall {
+    grid-area: card3;
+  }
+  .card-short {
+    grid-area: card4;
+  }
+  .card-black {
+    grid-area: card5;
+  }
+}
